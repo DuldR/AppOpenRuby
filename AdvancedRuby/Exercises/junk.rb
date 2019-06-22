@@ -1,5 +1,3 @@
-sym = :hello
-str = "hello"
+fruit = ["pear", "dragonfruit", "fig", "clementine"]
 
-p sym.length
-p str.length
+puts fruit.count { |ele| ele.length > 5 }
