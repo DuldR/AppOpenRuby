@@ -1,20 +1,26 @@
-str = "code never lies, comments sometimes do."
+def junk(str)
 
-def alternating_case(strA)
-    returnArr = []
+    vowels = "aeiou"
+    index = []
 
-    strA.split(" ").each_with_index do |ele, idx|
 
-        if idx.even? == true
-            returnArr << ele.upcase
-        else
-            returnArr << ele
+    vowels.split("").each do |ele|
+        str.each_char.with_index do |char, idx|
+            if char == ele
+                index << idx
+            else
+                next
+            end
         end
-
     end
 
-    returnArr.join(" ")
+    if index.empty? == true
+        return str
+    else
+        str.slice!(index.sort[-1])
+        return str
+    end
+end
 
-end 
 
-print alternating_case(str)
+print junk("Weiner")
