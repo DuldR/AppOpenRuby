@@ -57,7 +57,7 @@ def caesar_cipher(str_m, num)
 
             if num > 26
                 while num > 26
-                    num -= 52
+                    num -= 26
                 end
             end
 
