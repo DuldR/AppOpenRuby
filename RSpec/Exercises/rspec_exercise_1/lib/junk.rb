@@ -1,26 +1,59 @@
-def junk(str)
+# VOWELS = "aeiouAEIOU"
+# ALPHA = "abcdefghijklmnopqrstuvwxyz"
+# NUMS = "0123456789"
 
-    vowels = "aeiou"
-    index = []
+
+# def caesar_cipher(str_m, num)
+
+#     returnStr = ""
 
 
-    vowels.split("").each do |ele|
-        str.each_char.with_index do |char, idx|
-            if char == ele
-                index << idx
-            else
-                next
-            end
-        end
-    end
+#     str_m.each_char do |let|
 
-    if index.empty? == true
-        return str
-    else
-        str.slice!(index.sort[-1])
-        return str
-    end
+
+#         if ALPHA.include?(let)
+            
+#             found = ALPHA.index(let)
+            
+#             if num > 26
+#                 while num % 26 > 26
+#                     num /= 26
+#                 end
+#             end
+
+#             print num
+
+#             if (found + num) >= 26
+#                 offset = ALPHA[found + num - 26]
+#             else
+#                 offset = ALPHA[found + num]
+#             end
+
+            
+
+#             returnStr << offset
+#         else
+#             returnStr << let
+#         end
+        
+#     end
+
+#     return returnStr
+
+
+# end
+
+# print caesar_cipher("whoa", 52)
+
+
+
+
+
+
+num = 52
+while num > 26
+    num -= 26
 end
 
+print num
 
-print junk("Weiner")
