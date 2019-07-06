@@ -1,14 +1,17 @@
-require "byebug"
+butts = Hash.new(0)
+str = "hentai"
 
-def avg(a, b)
-
-    sum = a + b
-    sum / 2.0
-    
+str.chars do |ele|
+    butts[ele] += 1
 end
 
-debugger
-first_result = avg(15, 20)
-second_result = first_result + 0.5
 
-p second_result
+butts.each do |k,v|
+
+    if v >= 2
+        print k
+    else
+        next
+    end
+
+end
