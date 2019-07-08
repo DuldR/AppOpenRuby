@@ -60,7 +60,69 @@ def unique_chars?(strU)
 end
 
 
-def dupe_indices(arrI)
+def ana_array(arrI, arrII)
 
+    firstHash = Hash.new(0)
+    secondHash = Hash.new(0)
+
+    arrI.each do |ele| #Fills first comparison hash.
+        firstHash[ele] += 1
+    end
+
+    arrII.each do |ele2| #Fills second comparison hash.
+        secondHash[ele2] += 1
+    end
+
+    if firstHash == secondHash #Return true if same.
+        return true
+    else
+        return false
+    end
+
+end
+
+def double?(arr) #Checks to see if there are duplicate elements in the array.
+
+    dHash = Hash.new(0)
+    returnArr = []
+
+
+    arr.each do |ele|
+
+        dHash[ele] += 1
+    end
+
+    dHash.each do |k, v|
+        if v >= 2
+            returnArr << k
+        else
+            next
+        end
+    end
+
+    returnArr #Returns array of duplicate elemtns. 
+
+end
+
+def dupe_indices(arrD)
+    dupeHash = Hash.new(0)
+
+    double?(arrD).each do |ele1| #Iterate through doubles if any.
+        fillArr = []
+
+        arrD.each_with_index do |ele2, idx|
+
+            if ele1 == ele2
+                fillArr << idx
+            else
+                next
+            end
+
+        end
+
+        dupeHash[ele1] = fillArr
+    end
+
+    dupeHash
 
 end
