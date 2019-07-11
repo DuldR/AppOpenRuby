@@ -49,3 +49,4 @@ def any_passing_students?(arrS)
     arrS.any? { |stu| average(stu[:grades]) > 75 } #Calls the average function on the grade and compares to 75.
 end 
 
+"test2"
