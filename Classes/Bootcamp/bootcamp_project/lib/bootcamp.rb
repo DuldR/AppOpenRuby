@@ -55,7 +55,7 @@ class Bootcamp
 
     def add_grade(student, grade) # If enrolled returns true, add that student's grade to his hash and return true.
 
-        if enrolled?(student) == true 
+        if self.enrolled?(student) == true 
             @grades[student] << grade
             return true
         else
@@ -69,7 +69,7 @@ class Bootcamp
 
     def average_grade(student) #Return the students grade average.
 
-        if enrolled?(student) == false || @grades[student] == []
+        if self.enrolled?(student) == false || @grades[student] == []
             return nil
         else
             average = @grades[student].sum / @grades[student].length
