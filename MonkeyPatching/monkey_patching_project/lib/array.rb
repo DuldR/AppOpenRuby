@@ -86,7 +86,7 @@ class Array
 
     end
 
-    def my_transpose
+    def my_transpose #Shamelessly stolen from Alvin.
 
         new_arr = []
 
