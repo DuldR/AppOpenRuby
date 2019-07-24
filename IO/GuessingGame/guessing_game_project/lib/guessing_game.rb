@@ -25,11 +25,11 @@ class GuessingGame
         @game_over
     end
 
-    #----Class Methods-----
+    #----Instance Methods-----
 
     def check_num(num)
         # No need for a while loop.
-        
+
         @num_attempts += 1
 
         if num == @secret_num
