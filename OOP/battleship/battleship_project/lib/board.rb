@@ -3,16 +3,23 @@ class Board
     attr_reader :size
 
     def self.print_grid(tGrid)
+        
+        # Works, but makes playing VERY wonky.
+        
+        # tGrid.each do |ele|
+        #     ele.each do |ele2|
+        #         if ele2 == ele[-1]
+        #             print ele2
+        #         else
+        #             print ele2.to_s + " "
+        #         end
+        #     end
+        #     print "\n"
+        # end
 
-        tGrid.each do |ele|
-            ele.each do |ele2|
-                if ele2 == ele[-1]
-                    print ele2
-                else
-                    print ele2.to_s + " "
-                end
-            end
-            print "\n"
+        #Alvins Method - Much cleaner and works.
+        tGrid.each do |row|
+            puts row.join(" ")
         end
 
 
