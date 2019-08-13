@@ -6,7 +6,53 @@
 #
 # all_vowel_pairs(["goat", "action", "tear", "impromptu", "tired", "europe"])   # => ["action europe", "tear impromptu"]
 def all_vowel_pairs(words)
+    vowels = ["a", "i", "e", "o", "u"]
+    check = []
 
+
+
+    words.each do |word|
+        words.each do |word2|
+            if vowels.all? { |ele| (word + " " + word2).include?(ele) } == true
+                if check.include?(word2 + " " + word)
+                    next
+                else
+                    check << word + " " + word2
+                end
+            end
+        end
+    end
+
+    return check
+
+    # THIS WAS BAD
+    # returnHash = Hash.new()
+
+    # words.each do |ele|
+    #     returnHash[ele] = Hash.new(0)
+    #     ele.chars.each do |ele2|
+    #         if vowels.include?(ele2)
+    #             returnHash[ele][ele2] += 1
+    #         end
+    #     end
+    # end
+
+    # hello = []
+
+    # returnHash.keys.each do |ele|
+    #     returnHash.keys.each do |ele2|
+    #         checkHash = returnHash[ele].merge(returnHash[ele2])
+    #         if vowels.all? { |v| checkHash.keys.include?(v) } == true
+    #             hello << ele + " " + ele2
+    #         end
+    #     end
+    # end
+
+    # howLong = hello.length / 2
+
+    # howLong.times { |i| hello.pop }
+
+    # return hello
 end
 
 
@@ -19,6 +65,8 @@ end
 # composite?(13)    # => false
 def composite?(num)
 
+    check = (2...num).to_a
+    check.any? { |ele| num % ele == 0 }
 end
 
 
@@ -32,7 +80,7 @@ end
 # find_bigrams("the theater is empty", ["cy", "em", "ty", "ea", "oo"])  # => ["em", "ty", "ea"]
 # find_bigrams("to the moon and back", ["ck", "oo", "ha", "at"])        # => ["ck", "oo"]
 def find_bigrams(str, bigrams)
-
+    bigrams.select { |ele| str.include?(ele) }
 end
 
 class Hash
@@ -51,6 +99,23 @@ class Hash
     # hash_2.my_select                            # => {4=>4}
     def my_select(&prc)
 
+        # A ||= B is a conditional assignment.
+        # If A is undefined or falsey, evaluate B and set A to the result.
+        prc ||= Proc.new { |k,v| k == v }
+
+        returnHash = Hash.new(0)
+
+        #CALLS ON SELF CAUSE NO GIVEN ARGUMENT LOL.
+        self.each do |k, v|
+            if prc.call(k, v) == true
+                returnHash[k] = v
+            else
+                next
+            end
+        end
+
+        returnHash
+
     end
 end
 
@@ -64,6 +129,8 @@ class String
     # "cats".substrings     # => ["c", "ca", "cat", "cats", "a", "at", "ats", "t", "ts", "s"]
     # "cats".substrings(2)  # => ["ca", "at", "ts"]
     def substrings(length = nil)
+        length ||= 
+
 
     end
 
