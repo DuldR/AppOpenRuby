@@ -7,7 +7,7 @@ Various
 
 ## Authors
 
-* **Garrett Julaka** - *Initial work* - 
+* **Garrett Julaka**
 
 Completed Thursday, August 15th, 2019.
 
