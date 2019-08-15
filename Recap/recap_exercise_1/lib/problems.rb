@@ -128,11 +128,30 @@ class String
     #
     # "cats".substrings     # => ["c", "ca", "cat", "cats", "a", "at", "ats", "t", "ts", "s"]
     # "cats".substrings(2)  # => ["ca", "at", "ts"]
+        
     def substrings(length = nil)
-        length ||= 
+        setupArr = []
+        returnSub = []
 
+        self.each_char.with_index do |e, idx|
+            setupArr << self[idx..-1]
+        end
 
+        setupArr.each do |ele|
+            n = 0
+            ele.each_char.with_index do |l, i|
+                returnSub << ele[0..n]
+                n += 1
+            end
+        end
+
+        if length == nil
+            returnSub
+        else
+            returnSub.select { |words| words.length == length }
+        end
     end
+
 
 
     # Write a method, String#caesar_cipher, that takes in an a number.
@@ -145,6 +164,18 @@ class String
     # "bootcamp".caesar_cipher(2) #=> "dqqvecor"
     # "zebra".caesar_cipher(4)    #=> "difve"
     def caesar_cipher(num)
+        alpha = ("a".."z").to_a
 
+        returnArr = self.each_char.map do |let|
+            shift = alpha.find_index(let) + num
+            
+            if shift > 25
+                shift %= 26
+            end
+
+            let = alpha[shift]
+        end
+
+        returnArr.join("")
     end
 end
