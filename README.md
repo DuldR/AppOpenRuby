@@ -9,3 +9,5 @@ Various
 
 * **Garrett Julaka** - *Initial work* - 
 
+Completed Thursday, August 15th, 2019.
+
